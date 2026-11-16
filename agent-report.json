@@ -1,0 +1,19 @@
+{
+  "issueNumber": 1,
+  "branch": "agent/issue-1",
+  "provider": "anthropic",
+  "modelId": "claude-haiku-5-5",
+  "success": true,
+  "attempts": 1,
+  "totalTokens": 10554,
+  "stoppedByBudget": false,
+  "changedFiles": [
+    "agent/demo-site/styles.css"
+  ],
+  "summary": "Adicionei um estado `.cta:hover` em `agent/demo-site/styles.css` que escurece o fundo do botão \"Ver cardápio\" para `#9a3412`, conforme a sugestão do review. Também incluí `transition: background-color 150ms ease;` na regra `.cta` para suavizar a mudança. Nenhuma outra parte da página foi alterada.",
+  "lastVerification": {
+    "ok": true,
+    "failedCommand": null,
+    "output": "todos os comandos passaram"
+  }
+}
