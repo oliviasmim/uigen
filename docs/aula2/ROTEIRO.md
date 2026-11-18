@@ -91,9 +91,17 @@ e tokens, lista de arquivos, **prints de antes/depois lado a lado**.
 não commita na `main` — ele entrega um pacote de evidência que um humano
 aprecia em 30 segundos. O valor está no checkpoint, não na autonomia.
 
-Faça ao vivo: "Ready for review" → squash merge → a issue fecha sozinha
-(o PR carrega `Closes #N`). 📸
+Faça ao vivo: "Ready for review" → squash merge **sem deletar a branch**
+→ a issue fecha sozinha (o PR carrega `Closes #N`). 📸
 [`screens/06-merge-humano.png`](screens/06-merge-humano.png)
+
+Detalhe de implementação que virou aprendizado na turma: os prints do
+PR são links `raw.githubusercontent.com/.../agent/issue-N/...` — servidos
+pela branch do agente. Se você marcar "delete branch" no merge, os links
+quebram (foi o que aconteceu nos PRs #4 e #5, já corrigidos apontando
+para a `main`, para onde o squash merge leva os mesmos arquivos). Regra
+prática: merge sem delete, e a branch vira o histórico do trabalho do
+agente.
 
 📄 Snippet: [`06-pr-draft`](snippets/06-pr-draft.md)
 

@@ -162,6 +162,12 @@ jobs:
           > ⚠️ PRs criados com \`GITHUB_TOKEN\` **não disparam outros workflows**
           > (proteção anti-recursão do Actions). Se este repo tivesse CI de PR,
           > a alternativa seria um PAT ou um GitHub App.
+          >
+          > ⚠️ **Ao fazer merge, NÃO delete a branch** \`$B\`: os prints de
+          > antes/depois acima são links raw servidos dela. Se já deletou,
+          > sem pânico — o squash merge leva os mesmos arquivos para a
+          > \`main\`; basta trocar \`/$B/agent-runs\` por \`/main/agent-runs\`
+          > nas URLs acima.
           EOF
           )"
 
