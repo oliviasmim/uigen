@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#555"/>
+    </marker>
+    <marker id="arrowHuman" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#6f42c1"/>
+    </marker>
+    <marker id="arrowLoop" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#c2410c"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="560" fill="#fafaf9"/>
+  <text x="490" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1c1917">Loop Engineering — o ciclo da Aula 2</text>
+  <text x="490" y="58" text-anchor="middle" font-size="12" fill="#78716c">issue rotulada → agente edita → testes de verdade → PR draft → humano aprova</text>
+
+  <!-- 1. GATILHO -->
+  <g>
+    <rect x="40" y="90" width="270" height="86" rx="12" fill="#fff" stroke="#d6d3d1" stroke-width="1.5"/>
+    <rect x="40" y="90" width="6" height="86" rx="3" fill="#6f42c1"/>
+    <text x="62" y="116" font-size="14" font-weight="700" fill="#1c1917">1. GATILHO</text>
+    <text x="62" y="136" font-size="11.5" fill="#57534e">label <tspan font-weight="700">agent:ready</tspan> na issue</text>
+    <text x="62" y="152" font-size="11.5" fill="#57534e">(só quem tem escrita rotula)</text>
+    <text x="62" y="168" font-size="11" fill="#a8a29e">.github/workflows/agent-loop.yml</text>
+  </g>
+
+  <!-- 2. CONTEXTO -->
+  <g>
+    <rect x="355" y="90" width="270" height="86" rx="12" fill="#fff" stroke="#d6d3d1" stroke-width="1.5"/>
+    <rect x="355" y="90" width="6" height="86" rx="3" fill="#0e7490"/>
+    <text x="377" y="116" font-size="14" font-weight="700" fill="#1c1917">2. CONTEXTO</text>
+    <text x="377" y="136" font-size="11.5" fill="#57534e">issue + arquivos da allowlist</text>
+    <text x="377" y="152" font-size="11.5" fill="#57534e">+ CLAUDE.md do repo</text>
+    <text x="377" y="168" font-size="11" fill="#a8a29e">agent/issue-context.ts · tools.ts</text>
+  </g>
+
+  <!-- 3. AÇÃO -->
+  <g>
+    <rect x="670" y="90" width="270" height="86" rx="12" fill="#fff" stroke="#d6d3d1" stroke-width="1.5"/>
+    <rect x="670" y="90" width="6" height="86" rx="3" fill="#b45309"/>
+    <text x="692" y="116" font-size="14" font-weight="700" fill="#1c1917">3. AÇÃO</text>
+    <text x="692" y="136" font-size="11.5" fill="#57534e">branch agent/issue-N + edição</text>
+    <text x="692" y="152" font-size="11.5" fill="#57534e">via tools (list/read/write_file)</text>
+    <text x="692" y="168" font-size="11" fill="#a8a29e">agent/tools.ts · generateText</text>
+  </g>
+
+  <!-- 4. VERIFICAÇÃO -->
+  <g>
+    <rect x="670" y="330" width="270" height="92" rx="12" fill="#fff" stroke="#d6d3d1" stroke-width="1.5"/>
+    <rect x="670" y="330" width="6" height="92" rx="3" fill="#15803d"/>
+    <text x="692" y="356" font-size="14" font-weight="700" fill="#1c1917">4. VERIFICAÇÃO</text>
+    <text x="692" y="376" font-size="11.5" fill="#57534e">npm run lint + npm test no shell</text>
+    <text x="692" y="392" font-size="11.5" fill="#57534e">(o modelo NÃO tem tool de shell)</text>
+    <text x="692" y="408" font-size="11" fill="#a8a29e">agent/verify.ts</text>
+  </g>
+
+  <!-- 5. CHECKPOINT HUMANO -->
+  <g>
+    <rect x="355" y="330" width="270" height="92" rx="12" fill="#f5f3ff" stroke="#6f42c1" stroke-width="2"/>
+    <rect x="355" y="330" width="6" height="92" rx="3" fill="#6f42c1"/>
+    <text x="377" y="356" font-size="14" font-weight="700" fill="#4c1d95">5. CHECKPOINT HUMANO</text>
+    <text x="377" y="376" font-size="11.5" fill="#57534e">PR draft + plano + testes</text>
+    <text x="377" y="392" font-size="11.5" fill="#57534e">+ prints antes/depois</text>
+    <text x="377" y="408" font-size="11" fill="#a8a29e">nada entra na main sozinho</text>
+  </g>
+
+  <!-- setas principal -->
+  <line x1="310" y1="133" x2="350" y2="133" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="625" y1="133" x2="665" y2="133" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 805 176 L 805 325" stroke="#555" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <line x1="670" y1="376" x2="630" y2="376" stroke="#6f42c1" stroke-width="2.5" marker-end="url(#arrowHuman)"/>
+  <text x="650" y="368" font-size="11" fill="#6f42c1" text-anchor="middle" font-weight="700">passou</text>
+
+  <!-- O LOOP: erro volta -->
+  <path d="M 600 422 C 560 500, 900 520, 920 430 L 925 200" stroke="#c2410c" stroke-width="2" fill="none" stroke-dasharray="7 5" marker-end="url(#arrowLoop)"/>
+  <text x="795" y="492" font-size="11.5" fill="#c2410c" font-weight="700">falhou? o erro vira a próxima mensagem do modelo — máx. N tentativas</text>
+  <text x="795" y="508" font-size="11" fill="#a8a29e">agent/loop.ts (o loop de verdade)</text>
+
+  <!-- merge -->
+  <path d="M 355 376 L 175 376 L 175 183" stroke="#6f42c1" stroke-width="2.5" fill="none" stroke-dasharray="2 0" marker-end="url(#arrowHuman)"/>
+  <text x="120" y="280" font-size="11.5" fill="#6f42c1" font-weight="700">humano revisa</text>
+  <text x="120" y="296" font-size="11.5" fill="#6f42c1" font-weight="700">e faz merge</text>
+
+  <!-- 6. GUARDRAILS em volta de tudo -->
+  <g>
+    <rect x="40" y="440" width="585" height="80" rx="12" fill="#fef2f2" stroke="#d73a4a" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="62" y="466" font-size="14" font-weight="700" fill="#991b1b">6. ESTADO E GUARDRAILS (em volta de tudo)</text>
+    <text x="62" y="486" font-size="11.5" fill="#57534e">limite de tentativas e tokens · allowlist de paths · issue como input não confiável</text>
+    <text x="62" y="502" font-size="11.5" fill="#57534e">permissions mínimas no workflow · concurrency por issue</text>
+    <text x="62" y="518" font-size="11" fill="#a8a29e">agent/config.ts · agent/guardrails.ts · permissions: no YAML</text>
+  </g>
+</svg>
